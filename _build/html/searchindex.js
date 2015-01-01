@@ -1,0 +1,1 @@
+Search.setIndex({titleterms:{die:0,move:0,indic:0,document:0,tabl:0,welcom:0},objects:{},envversion:43,filenames:["index"],titles:["Welcome to Move or Die&#8217;s documentation!"],objnames:{},objtypes:{},terms:{search:0,index:0,page:0,content:0,modul:0}})

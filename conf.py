@@ -242,7 +242,7 @@ man_pages = [
 #  dir menu entry, description, category)
 texinfo_documents = [
   ('index', 'MoveorDie', 'Move or Die Documentation',
-   'Omar Shehata', 'MoveorDie', 'One line description of project.',
+   'Omar Shehata', 'MoveorDie', 'Documentation for the game Move or Die source code',
    'Miscellaneous'),
 ]
 
