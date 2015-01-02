@@ -1,22 +1,17 @@
-.. Move or Die documentation master file, created by
-   sphinx-quickstart on Thu Jan  1 12:22:45 2015.
-   You can adapt this file completely to your liking, but it should at least
-   contain the root `toctree` directive.
-
-Welcome to Move or Die's documentation!
+Move or Die Documentation
 =======================================
 
-Contents:
+Move or Die is a fast paced party game (see http://moveordiegame.com/ ) This documentation aims to provide a thorough breakdown and explanation of the core engine that both Concerned Joe (http://concernedjoe.com/) as well as Move or Die are built upon as well as the specific features of Move or Die. 
+
+Users aiming to mod the game will hopefully find this useful. Let us know if there's anything missing, or if you'd like to contribute at contact [at] thoseawesomeguys.com 
+
+Table of contents
+==================
 
 .. toctree::
    :maxdepth: 2
+  engineoverview
 
-
-
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
+  
 * :ref:`search`
 
