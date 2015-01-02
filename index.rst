@@ -5,13 +5,15 @@ Move or Die is a fast paced party game (see http://moveordiegame.com/ ) This doc
 
 Users aiming to mod the game will hopefully find this useful. Let us know if there's anything missing, or if you'd like to contribute at contact [at] thoseawesomeguys.com 
 
-Table of contents
+Where to start?
 ==================
+
+The :ref:`engineoverview` will give you a general idea of what the engine can do, what it's made of and how all these pieces connect. 
+
+For a more in-depth explanation of specific code files, use the listing or the search on the left. 
+
+If you want to get started modding the game, check out the :ref:'moddingbasics' guide.  
 
 .. toctree::
    :maxdepth: 2
-  engineoverview
-
   
-* :ref:`search`
-
