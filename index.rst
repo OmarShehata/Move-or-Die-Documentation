@@ -15,7 +15,5 @@ For a more in-depth explanation of specific code files, use the listing or the s
 If you want to get started modding the game, check out the :ref:`moddingbasics` guide.  
 
 .. toctree::
-   :hidden: 2
-  
    engineoverview
    moddingbasics
