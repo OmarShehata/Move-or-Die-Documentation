@@ -51,7 +51,25 @@
             
   <div class="section" id="game-engine-overview">
 <span id="engineoverview"></span><h1>Game Engine Overview<a class="headerlink" href="#game-engine-overview" title="Permalink to this headline">¶</a></h1>
-<p>This is an overview of the game engine</p>
+<p>The &#8220;Game Engine&#8221; refers to all the core pieces that power the game. We will go through the files in an order that makes sense to trace through what happens when you run the game, and highlight what each piece if responsible for.</p>
+<div class="section" id="main-lua-where-it-all-begins">
+<h2>Main.lua: Where it All Begins<a class="headerlink" href="#main-lua-where-it-all-begins" title="Permalink to this headline">¶</a></h2>
+<p>Main.lua is Love&#8217;s constructor. It is where our journey through the engine begins!</p>
+<p>It contains the various <a class="reference external" href="https://www.love2d.org/wiki/love#Callbacks">callbacks</a> we&#8217;ll use to handle everything from rendering to keyboard and joystick input.</p>
+<p>For simplicity&#8217;s sake, Main.lua contains as little code as possible. All callbacks are abstracted either through GameSetup [link here] or Events [link here].</p>
+<p><strong>love.load</strong> is our entry point. It gets called once when the game is run.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">love.load is called even <strong>before the game window is initialized</strong>. Avoid using any calls to love.graphics until the game window is created with love.window.setMode in GameSetup.lua, otherwise the game will not run.</p>
+</div>
+<p>GameSetup handles all of our initialization that happens in love.load. It also has implementations for the main render and update functions that get called in <strong>love.draw</strong> and <strong>love.update</strong> respectively.</p>
+<p><strong>love.keypressed</strong>, as well as mouse and joystick callbacks are all handled through Events. Check its class-specific page to learn about how keyboard, mouse and joystick input is handled in the engine.</p>
+<p><strong>love.run</strong> shows you the timeline of how things are called. It is essentially the first function that is called, which then calls love.load and sets up the other callbacks.</p>
+</div>
+<div class="section" id="gamesetup-the-engine-s-seed">
+<h2>GameSetup: The Engine&#8217;s Seed<a class="headerlink" href="#gamesetup-the-engine-s-seed" title="Permalink to this headline">¶</a></h2>
+<p>I call it the seed because GameSetup is like this core that&#8217;s always running and everything else sprouts (gets called) from it. This setup makes the engine very flexible. <em>You could code an entirely different game inside this engine without screwing up anything else!</em></p>
+</div>
 </div>
 
 
@@ -60,6 +78,15 @@
       </div>
       <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Game Engine Overview</a><ul>
+<li><a class="reference internal" href="#main-lua-where-it-all-begins">Main.lua: Where it All Begins</a></li>
+<li><a class="reference internal" href="#gamesetup-the-engine-s-seed">GameSetup: The Engine&#8217;s Seed</a></li>
+</ul>
+</li>
+</ul>
+
   <h4>Previous topic</h4>
   <p class="topless"><a href="index.html"
                         title="previous chapter">Move or Die Documentation</a></p>
