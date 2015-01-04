@@ -21,3 +21,4 @@ Contents:
 .. toctree::
    engineoverview
    moddingbasics
+   codeindex
