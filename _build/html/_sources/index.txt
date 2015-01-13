@@ -12,7 +12,7 @@ Where to start?
 
 The :ref:`engineoverview` will give you a general idea of what the engine can do, what it's made of and how all these pieces connect. 
 
-For a more in-depth explanation of specific code files, use the listing or the search on the left. 
+For a more in-depth explanation of specific code files, check the :ref:`codeindex`
 
 If you want to get started modding the game, check out the :ref:`moddingbasics` guide.  
 
