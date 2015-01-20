@@ -12,7 +12,7 @@ Main.lua is Love's constructor. It is where our journey through the engine begin
 
 It contains the various `callbacks <https://www.love2d.org/wiki/love#Callbacks>`_ we'll use to handle everything from rendering to keyboard and joystick input. 
 
-For simplicity's sake, Main.lua contains as little code as possible. All callbacks are abstracted either through GameSetup [link here] or :ref:`Events` .
+For simplicity's sake, Main.lua contains as little code as possible. All callbacks are abstracted either through :ref:`GameSetup` or :ref:`Events` .
 
 **love.load** is our entry point. It gets called once when the game is run.
 
@@ -34,9 +34,9 @@ GameSetup is responsible for the following tasks:
 * Loading config files and initializing the game window on startup (GameSetup:init)
 * Loading game modes and giving them access to the update and render callbacks in main.lua 
 
-What makes this system so versatile is the GameMode [link here] system. GameSetup is responsible **for nothing other than setting up and implementing the GameMode system.** It is up to each individual game mode to initialize and run the pieces it needs of the engine. 
+What makes this system so versatile is the :ref:`GameMode` system. GameSetup is responsible **for nothing other than setting up and implementing the GameMode system.** It is up to each individual game mode to initialize and run the pieces it needs of the engine. 
 
-Think of it like a component-based system. A bare game mode will be nothing more than a black sceen. If you want to render anything, just import the RenderingSystem [link here]! Want some sound? We have the SoundSystem [link here]. What about some physics (Box2d) ? You can import that too! All these difference pieces are self-contained. This setup was meant to keep the code clean and easy to debug. As a bonus, this also means it's very easy to switch out to a modified rendering system or completely different physics, or add new components! 
+Think of it like a component-based system. A bare game mode will be nothing more than a black sceen. If you want to render anything, just import the :ref:`RenderingSystem`! Want some sound? We have the :ref:`SoundSystem`. What about some physics (Box2d) ? You can import that too! All these difference pieces are self-contained. This setup was meant to keep the code clean and easy to debug. As a bonus, this also means it's very easy to switch out to a modified rendering system or completely different physics, or add new components! 
 
 .. note:: Move or Die actually started as just that: a new game mode within Concerned Joe. That's why the mode that runs it is called PartyMode.lua, in reference to it originally being the "Party Mode" of Concerned Joe. While the two seperate games were able to co-exist on the same engine without interference, there were occasions when we had to hardcode something in. This is where you'll see the global variable _PARTY in some places in the code. 
 
@@ -47,7 +47,9 @@ Game Modes: The Heart
 
 Game Modes are self-contained states. They must clean up everything they do. I call it the heart of the game because looking at it bare allows you to see everthing that's moving in the engine. 
 
-GameMode.lua [link here] itself is something like a virtual class with empty functions for **init**, **cleanup**, **update** and **render**. Those are the four functions you need to overwrite when you create a new mode. The other functions provide useful methods for GameSetup's implementation. 
+.. note:: It's important to note that these Game Modes are the game engine's states. They are completely distinct from Move Or Die's game modes such as 'Stomp', 'Bomb Tag' etc.. These are implemented using a different system. You can read more about it here. [link here]
+
+:ref:`GameMode` itself is something like a virtual class with empty functions for **init**, **cleanup**, **update** and **render**. Those are the four functions you need to overwrite when you create a new mode. The other functions provide useful methods for GameSetup's implementation. 
 
 Let's take a look at a simple Game Mode that implements the engine's main components::
 
@@ -94,7 +96,7 @@ Here we load the GameMode class and initialize our new game mode. We give it the
 	local rendering = require("Engine/RenderingSystem");
 	local soundsys = require("Engine/SoundSystem");
 	
-We include 3 out of the 4 systems we're using. SpatialHash [link here] is a special class that takes care of keeping track of where things are on screen. It's mainly used in RenderingSystem [link here] which is our second class. As the name implies, it takes care of rendering everything on screen. SoundSystem [link here] takes care of audio. The fourth system that isn't mentioned here is Box2d, our physics system. The physics `world <https://www.love2d.org/wiki/World>`_ object *_world* is a global that can be accessed without needing to import anything::
+We include 3 out of the 4 systems we're using. :ref:`SpatialHash` is a special class that takes care of keeping track of where things are on screen. It's mainly used in :ref:`RenderingSystem` which is our second class. As the name implies, it takes care of rendering everything on screen. :ref:`SoundSystem` takes care of audio. The fourth system that isn't mentioned here is Box2d, our physics system. The physics `world <https://www.love2d.org/wiki/World>`_ object *_world* is a global that can be accessed without needing to import anything::
 
 	function TestMode:init()
 	end
@@ -123,6 +125,6 @@ Only the Rendering and Sound systems need a render function. It's obvious why th
 Conclusion
 ##########
 
-That's it! You now know the gist of how the engine is structured. Of course there's far more to be said in how the engine works, but this at least covers enough of the basics so that you have a generla sense of how everything connects and know where to look, where to insert your own code etc.. 
+That's it! You now know the gist of how the engine is structured. Of course there's far more to be said in how the engine works, but this at least covers enough of the basics so that you have a general sense of how everything connects and know where to look, where to insert your own code etc.. 
 
-It is strongly recommended to read about the GameObject [link here] class next, because there isn't much that can be done in the engine without it. Then looking into the four systems mentioned above. 
+It is strongly recommended to read about the :ref:`GameObject` class next, because there isn't much that can be done in the engine without it. Then looking into the four systems mentioned above. 
